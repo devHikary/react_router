@@ -29,3 +29,8 @@ Nesse curso será desenvolvido **o Blog do Doguito** utilizando
 - Criamos um componente 404 para quando a pessoa tentar acessar alguma página que não existe.
 - Vimos a diferença entre uma SPA (Single Page Application) e um MPA (Multi Pages Application).
 - Montamos a navbar utilizando o React Router para simular uma MPA (Multi Pages Application).
+### Aula 3
+
+- Mudamos a tag `<a>` do html para que o React consiga entender utilizando o `Link` ;
+- Utilizamos a biblioteca axios para fazer requisições no servidor para buscar artigos;
+- Fizemos uma requisição de um artigo específico passando o id do curso, utilizando o `useEffect`.
