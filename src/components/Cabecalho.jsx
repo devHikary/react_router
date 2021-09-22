@@ -1,6 +1,7 @@
 import React from "react";
 import imagem from "../assets/img/doguito.svg";
-import '../assets/css/componentes/cabecalho.css'
+import "../assets/css/componentes/cabecalho.css";
+import { Link } from "react-router-dom";
 
 const Cabecalho = () => {
   return (
@@ -9,21 +10,32 @@ const Cabecalho = () => {
         <span className="menu-hamburguer__icone"></span>
       </div>
       <div className="cabecalho-container">
-        <a href="/" className="flex flex--centro">
-          <img src={imagem} alt="Logo do Doguito" />
-        </a>
-        <h1 className="cabecalho__titulo">PetShop</h1>
+        <Link to="/" className="flex flex--centro">
+          <img src={imagem} className="cabecalho__logo" alt="Logo do Doguito" />
+          <h1 className="cabecalho__titulo">PetShop</h1>
+        </Link>
       </div>
       <nav className="menu-cabecalho">
         <ul className="menu-itens">
           <li>
-            <a href="#" className="menu-item menu-item--entrar">Produtos</a>
+            <Link to="#" className="menu-item menu-item--entrar">
+              Entrar
+            </Link>
           </li>
           <li>
-            <a href="#" className="menu-item menu-item--entrar">Blog</a>
+            <Link to="#" className="menu-item">
+              Produtos
+            </Link>
           </li>
           <li>
-            <a href="#" className="menu-item menu-item--entrar">Sobre</a>
+            <Link to="#" className="menu-item">
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link to="/sobre" className="menu-item">
+              Sobre
+            </Link>
           </li>
         </ul>
       </nav>
