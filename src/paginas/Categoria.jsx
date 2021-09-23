@@ -6,14 +6,22 @@ import {
   Route,
   useParams,
   useRouteMatch,
+  Link,
   Switch,
 } from "react-router-dom";
 import { busca } from "../api/api";
-
+import SubCategoria from "../paginas/SubCategorias";
 
 const Categoria = () => {
   const { id } = useParams();
-  const { path } = useRouteMatch();
+  const { url, path } = useRouteMatch();
+  const [subcategorias, setSubCategorias] = useState([]);
+
+  useEffect(() => {
+    busca(`/categorias/${id}`, (categoria) => {
+      setSubCategorias(categoria.subcategorias);
+    });
+  }, [id]);
 
   return (
     <>
@@ -22,10 +30,27 @@ const Categoria = () => {
       </div>
 
       <ListaCategorias />
+      <ul className="lista-categorias container flex">
+        {
+          subcategorias.map((subcategoria) => (
+            <li
+              className={`lista-categorias__categoria lista-categorias__categoria--${id}`}
+              key={subcategoria}
+            >
+              <Link to={`${url}/${subcategoria}`}>{subcategoria}</Link>
+            </li>
+          ))
+        }
+      </ul>
+      <Switch>
         <Route exact path={`${path}/`}>
           <ListaPost url={`/posts?categoria=${id}`} />
         </Route>
+        <Route path={`${path}/:subcategoria`}>
+          <SubCategoria />
+        </Route>
+      </Switch>
     </>
-  )
-}
-export default Categoria
+  );
+};
+export default Categoria;
