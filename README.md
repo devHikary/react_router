@@ -38,3 +38,8 @@ Nesse curso será desenvolvido **o Blog do Doguito** utilizando
 
 - Mandamos a pessoa para o componente de 404 utilizando a função `useHistory()`;
 - Melhoramos a experiência de buscar um artigo criando um filtro por categorias;
+### Aula 5
+
+- Trabalhamos com rotas aninhadas.
+- Vimos como criar uma segunda camada de filtros para mostrar artigos de uma subcategoria específica, melhorando a experiência de quem for buscar algum artigo.
+- Usamos o hook `useRouteMatch` para criar caminhos dinâmicos.
